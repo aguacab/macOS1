@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario Restringido</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(90deg, #ff7eb3, #8b5cf6);
+            color: #fff;
+            text-align: center;
+            overflow: hidden;
+            user-select: none;
+        }
+
+        header, footer {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 80vh;
+            border: none;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 10px;
+        }
+
+        #formSelectorContainer {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+        }
+
+        #formSelector {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Cuestionario Restringido</h1>
+</header>
+
+<!-- Contenedor del menú de selección de formularios dentro del iframe -->
+<div id="formSelectorContainer">
+    <select id="formSelector">
+        <option value="https://forms.gle/pHSBHfSqKVjV5EPH8">C1.2 U4</option>
+        <option value="https://forms.gle/UdjYrPZnn8E8CF786">C2.1 U4</option>
+        <option value="https://forms.gle/M12j568mnYyJugA97">Formulario 3</option>
+        <option value="https://forms.gle/Xyz123Abc456">Formulario 4</option>
+    </select>
+    <button id="acceptBtn">Aceptar</button>
+</div>
+
+<!-- Formulario de Google incrustado -->
+<iframe id="googleForm" src="https://forms.gle/ceBBzgTsi8BdVwCQ9" allow="fullscreen"></iframe>
+
+<script>
+    document.getElementById('acceptBtn').addEventListener('click', function() {
+        const selectedForm = document.getElementById('formSelector').value;
+        document.getElementById('googleForm').src = selectedForm;
+    });
+</script>
+
+<footer>
+    <p>No se permite tener otras pestañas o ventanas, ni realizar capturas ni salir de la pantalla de la prueba. Cualquier incumplimiento conlleva la anulación de la prueba.</p>
+</footer>
+
+</body>
+</html>
